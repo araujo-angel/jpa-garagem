@@ -12,7 +12,8 @@ public class Veiculo {
     @Column(name = "placa")
     private String placa;
 
-    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "veiculo", cascade= {CascadeType.PERSIST, CascadeType.MERGE},
+			orphanRemoval = true)
     private List<Bilhete> bilhetes = new ArrayList<>();
 
     public Veiculo() {}

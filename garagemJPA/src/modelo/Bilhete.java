@@ -12,7 +12,7 @@ public class Bilhete {
     @Column(name = "codigo_de_barra", unique = true, nullable = false)
     private String codigoDeBarra;
 
-    @Column(name = "data_hora_inicial", nullable = false)
+    //@Column(name = "data_hora_inicial", nullable = false)
     private LocalDateTime dataHoraInicial;
 
     @Column(name = "data_hora_final")
@@ -21,8 +21,8 @@ public class Bilhete {
     @Column(name = "valor_pago")
     private double valorPago;
 
-    @ManyToOne
-    @JoinColumn(name = "veiculo_placa", nullable = false)
+    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
+    //@JoinColumn(name = "veiculo_placa", nullable = false)
     private Veiculo veiculo;
 
     public Bilhete() {}

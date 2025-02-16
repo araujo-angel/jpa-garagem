@@ -39,5 +39,10 @@
 <artifactId>mysql-connector-j</artifactId>
 <version>9.1.0</version>
 </dependency>
-</dependencies>
+  	<dependency>
+  		<groupId>JPA-Escola-exercicio</groupId>
+  		<artifactId>JPA-Escola-exercicio</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
