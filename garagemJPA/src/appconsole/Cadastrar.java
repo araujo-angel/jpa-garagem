@@ -55,6 +55,10 @@ public class Cadastrar {
 			manager.persist(v4);
 			manager.getTransaction().commit();
 			
+			manager.getTransaction().begin();
+			manager.persist(v5);
+			manager.getTransaction().commit();
+			
 			
 			//ATUALIZANDO PARA TESTAR COM UM BILHETE QUE TENHA HORA DE SAÍDA
 			b4.setDataHoraFinal(LocalDateTime.of(2024, 11, 20, 9, 0, 0, 0));
@@ -67,7 +71,7 @@ public class Cadastrar {
 		}
 
 		Util.fecharBanco();
-		System.out.println("\nfim da aplica��o");
+		System.out.println("\nfim da aplicacao");
 	}
 
 	// =================================================

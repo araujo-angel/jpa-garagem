@@ -5,14 +5,13 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 @Entity
-@Table(name = "bilhete")
 public class Bilhete {
 
     @Id
     @Column(name = "codigo_de_barra", unique = true, nullable = false)
     private String codigoDeBarra;
 
-    //@Column(name = "data_hora_inicial", nullable = false)
+    @Column(name = "data_hora_inicial", nullable = false)
     private LocalDateTime dataHoraInicial;
 
     @Column(name = "data_hora_final")

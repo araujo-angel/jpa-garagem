@@ -21,16 +21,16 @@ public class Consultar {
 		try {
 			manager = Util.conectarBanco();
 			
-			TypedQuery<Bilhete> query1 ;
-			TypedQuery<Veiculo> query2 ;
+			TypedQuery<Bilhete> queryB ;
+			TypedQuery<Veiculo> queryV ;
 			List<Bilhete> bilhetes;
 			List<Veiculo> veiculos;
 			String jpql;
 			
-			System.out.println("\n---quais os bilhetes com valor igual a 0 ?");
-			jpql = "select b from Bilhete b where b.valorPago = 0";
-			query1 = manager.createQuery(jpql, Bilhete.class);
-			bilhetes = query1.getResultList();
+			System.out.println("\n---quais os bilhetes não foram finalizados (com valor igual a 0) ?");
+			jpql = "select b from Bilhete b where b.valorPago = 0.0";
+			queryB = manager.createQuery(jpql, Bilhete.class);
+			bilhetes = queryB.getResultList();
 			for (Bilhete b : bilhetes)
 				System.out.println(b);
 
@@ -40,11 +40,11 @@ public class Consultar {
 			// Escrever a consulta JPQL usando um parâmetro
 			jpql = "SELECT v FROM Veiculo v JOIN v.bilhetes b WHERE b.dataHoraFinal BETWEEN :inicio AND :fim";
 			// Criar a query e definir os parâmetros
-			query2 = manager.createQuery(jpql, Veiculo.class);
-			query2.setParameter("inicio", dataDesejada);
-			query2.setParameter("fim", dataDesejada.plusDays(1).minusNanos(1)); // Final do dia 20/11/2024
+			queryV = manager.createQuery(jpql, Veiculo.class);
+			queryV.setParameter("inicio", dataDesejada);
+			queryV.setParameter("fim", dataDesejada.plusDays(1).minusNanos(1)); // Final do dia 20/11/2024
 			// Executar a consulta
-			veiculos = query2.getResultList();
+			veiculos = queryV.getResultList();
 			// Exibir os resultados
 			for (Veiculo v : veiculos) {
 			    System.out.println(v);
@@ -53,8 +53,8 @@ public class Consultar {
 			
 			System.out.println("\n---quais os veiculos contendo mais de 1 bilhete");
 			jpql = "select v from Veiculo v where size(v.bilhetes) > 1";
-			query2 = manager.createQuery(jpql, Veiculo.class);
-			veiculos = query2.getResultList();
+			queryV = manager.createQuery(jpql, Veiculo.class);
+			veiculos = queryV.getResultList();
 			for (Veiculo v : veiculos)
 				System.out.println(v);
 			
