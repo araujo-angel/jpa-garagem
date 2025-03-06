@@ -5,20 +5,13 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 @Entity
+@Table(name= "bilhete20231370001")
 public class Bilhete {
 
-    @Id
-    @Column(name = "codigo_de_barra", unique = true, nullable = false)
-    private String codigoDeBarra;
-
-    @Column(name = "data_hora_inicial", nullable = false)
-    private LocalDateTime dataHoraInicial;
-
-    @Column(name = "data_hora_final")
-    private LocalDateTime dataHoraFinal;
-
-    @Column(name = "valor_pago")
-    private double valorPago;
+	private String codigoDeBarra;
+	private LocalDateTime dataHoraInicial;
+	private LocalDateTime dataHoraFinal;
+	private double valorPago;
 
     @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
     //@JoinColumn(name = "veiculo_placa", nullable = false)

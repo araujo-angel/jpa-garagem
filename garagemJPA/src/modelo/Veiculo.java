@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name= "veiculo20231370001")
 public class Veiculo {
-
-    @Id
-    @Column(name = "placa")
+	
     private String placa;
 
     @OneToMany(mappedBy = "veiculo", cascade= {CascadeType.PERSIST, CascadeType.MERGE},
 			orphanRemoval = true)
+    
     private List<Bilhete> bilhetes = new ArrayList<>();
 
     public Veiculo() {}
