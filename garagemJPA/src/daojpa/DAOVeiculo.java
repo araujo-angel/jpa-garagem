@@ -12,9 +12,9 @@ import modelo.Veiculo;
 public class DAOVeiculo extends DAO<Veiculo>{
 	public Veiculo read(Object chave) {
 		try {
-			String nome = (String) chave;
-			TypedQuery<Veiculo> q = manager.createQuery("select v from Veiculo v where v.nome=:n", Veiculo.class);
-			q.setParameter("n", nome);
+			String placa = (String) chave;
+			TypedQuery<Veiculo> q = manager.createQuery("select v from Veiculo v where v.placa=:n", Veiculo.class);
+			q.setParameter("n", placa);
 			return q.getSingleResult();
 
 		} catch (NoResultException e) {
@@ -78,6 +78,4 @@ public class DAOVeiculo extends DAO<Veiculo>{
 	        return q.getResultList();
 	    }
 	}
-	
 
-}

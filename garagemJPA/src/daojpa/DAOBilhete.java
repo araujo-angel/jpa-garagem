@@ -11,9 +11,9 @@ public class DAOBilhete extends DAO<Bilhete>{
 	
 	public Bilhete read (Object chave){
 		try{
-			String nome = (String) chave;
-			TypedQuery<Bilhete> q = manager.createQuery("select cod from Bilhete a where b.nome=:n", Bilhete.class);
-			q.setParameter("n", nome);
+			String codigoDeBarra = (String) chave;
+			TypedQuery<Bilhete> q = manager.createQuery("select b from Bilhete b where b.codigoDeBarra=:n", Bilhete.class);
+			q.setParameter("n", codigoDeBarra);
 			return q.getSingleResult();
 
 		}catch(NoResultException e){

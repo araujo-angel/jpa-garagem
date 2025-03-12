@@ -184,6 +184,7 @@ public class Fachada {
 	    DAO.begin();
 	    Veiculo veiculo = daoveiculo.read(placaAtual);
 	    if (veiculo == null) {
+	    	DAO.rollback();
 	        throw new Exception("Veículo não encontrado: " + placaAtual);
 	    }
 
@@ -193,7 +194,7 @@ public class Fachada {
 	    }
 
 	    veiculo.setPlaca(novaPlaca);
-	    daoveiculo.update(veiculo);
+	    //daoveiculo.update(veiculo);
 	    DAO.commit();
 	}
 	
@@ -201,11 +202,12 @@ public class Fachada {
 	    DAO.begin();
 	    Bilhete bilhete = daobilhete.read(codigoDeBarra);
 	    if (bilhete == null) {
-	        throw new Exception("Bilhete não encontrado: " + codigoDeBarra);
+	    	DAO.rollback();
+	    	throw new Exception("Bilhete não encontrado: " + codigoDeBarra);
 	    }
 
 	    bilhete.setDataHoraFinal(novaDataHoraFinal);
-	    daobilhete.update(bilhete);
+	    //daobilhete.update(bilhete);
 	    DAO.commit();
 	}
 	

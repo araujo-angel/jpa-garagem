@@ -7,7 +7,7 @@ import java.util.Random;
 @Entity
 @Table(name= "bilhete20231370001")
 public class Bilhete {
-
+	@Id
 	private String codigoDeBarra;
 	private LocalDateTime dataHoraInicial;
 	private LocalDateTime dataHoraFinal;

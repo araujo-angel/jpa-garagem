@@ -1,33 +1,73 @@
-14:34:07,842 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-14:34:08,098  WARN PersistenceXmlParser:260 - HHH015018: Encountered multiple persistence-unit stanzas defining same name [hibernate-postgresql]; persistence-unit names must be unique
-14:34:08,099  WARN PersistenceXmlParser:260 - HHH015018: Encountered multiple persistence-unit stanzas defining same name [hibernate-mysql]; persistence-unit names must be unique
-14:34:08,112  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-14:34:08,236  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
-14:34:08,313 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-14:34:08,315  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-14:34:08,751  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
-14:34:09,354  INFO pooling:157 - HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/garagem]
+18:45:32,777  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
+18:45:32,783  INFO Util:34 - sgbd => postgresql
+18:45:32,784  INFO Util:35 - banco => pob
+18:45:32,784  INFO Util:36 - ip => localhost
+18:45:32,785  INFO Util:41 - ----configurando postgresql
+18:45:32,828 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+18:45:33,013  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+18:45:33,115  INFO Version:44 - HHH000412: Hibernate ORM core version 6.6.5.Final
+18:45:33,171 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+18:45:33,173  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+18:45:33,570  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+18:45:34,035  INFO pooling:157 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
 	Database driver: org.postgresql.Driver
 	Database version: 16.2
 	Autocommit mode: false
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-14:34:11,582  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-14:34:11,619  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2d7637e6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-14:34:12,560 DEBUG SQL:135 - select b1_0.codigo_de_barra,b1_0.data_hora_final,b1_0.dataHoraInicial,b1_0.valor_pago,b1_0.veiculo_placa from bilhete b1_0 where b1_0.valor_pago=0
-14:34:12,624 DEBUG SQL:135 - select v1_0.placa from veiculo v1_0 where v1_0.placa=?
-14:34:12,626 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC1234]
-14:34:12,665 DEBUG SQL:135 - select v1_0.placa from veiculo v1_0 where v1_0.placa=?
-14:34:12,666 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF2345]
-14:34:12,668 DEBUG SQL:135 - select v1_0.placa from veiculo v1_0 where v1_0.placa=?
-14:34:12,668 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI3456]
-14:34:12,749 DEBUG SQL:135 - select v1_0.placa from veiculo v1_0 join bilhete b1_0 on v1_0.placa=b1_0.veiculo_placa where b1_0.data_hora_final between ? and ?
-14:34:12,749 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-11-20T00:00]
-14:34:12,751 TRACE bind:24 - binding parameter (2:TIMESTAMP) <- [2024-11-20T23:59:59.999999999]
-14:34:12,757 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigo_de_barra,b1_0.data_hora_final,b1_0.dataHoraInicial,b1_0.valor_pago from bilhete b1_0 where b1_0.veiculo_placa=?
-14:34:12,758 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF2345]
-14:34:12,931 DEBUG SQL:135 - select v1_0.placa from veiculo v1_0 where (select count(*) from bilhete b1_0 where v1_0.placa=b1_0.veiculo_placa)>1
-14:34:12,934 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigo_de_barra,b1_0.data_hora_final,b1_0.dataHoraInicial,b1_0.valor_pago from bilhete b1_0 where b1_0.veiculo_placa=?
-14:34:12,934 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC1234]
+18:45:35,760  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18:45:35,789  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@d651804] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+18:45:36,492 DEBUG SQL:135 - select b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago,b1_0.veiculo_placa from bilhete20231370001 b1_0
+18:45:36,543 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:36,545 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC1234]
+18:45:36,579 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:36,580 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI3456]
+18:45:36,582 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:36,583 TRACE bind:24 - binding parameter (1:VARCHAR) <- [PFV1234]
+18:45:44,553 DEBUG SQL:135 - select b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago,b1_0.veiculo_placa from bilhete20231370001 b1_0 where b1_0.codigoDeBarra=?
+18:45:44,554 TRACE bind:24 - binding parameter (1:VARCHAR) <- [12032025505]
+18:45:44,578 DEBUG SQL:135 - update bilhete20231370001 set dataHoraFinal=?,dataHoraInicial=?,valorPago=?,veiculo_placa=? where codigoDeBarra=?
+18:45:44,580 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2025-03-12T21:00]
+18:45:44,581 TRACE bind:24 - binding parameter (2:TIMESTAMP) <- [2025-03-12T17:35:06.047036]
+18:45:44,582 TRACE bind:24 - binding parameter (3:DOUBLE) <- [6.0]
+18:45:44,584 TRACE bind:24 - binding parameter (4:VARCHAR) <- [PFV1234]
+18:45:44,584 TRACE bind:24 - binding parameter (5:VARCHAR) <- [12032025505]
+18:45:44,599 DEBUG SQL:135 - select b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago,b1_0.veiculo_placa from bilhete20231370001 b1_0
+18:45:44,601 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:44,601 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC1234]
+18:45:44,603 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:44,604 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI3456]
+18:45:44,606 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0 where v1_0.placa=?
+18:45:44,607 TRACE bind:24 - binding parameter (1:VARCHAR) <- [PFV1234]
+18:45:48,514  INFO Util:70 - ----desconectar banco
+18:45:50,027  INFO Util:27 - ----conectar banco - lendo arquivo de propriedades 
+18:45:50,028  INFO Util:34 - sgbd => postgresql
+18:45:50,029  INFO Util:35 - banco => pob
+18:45:50,029  INFO Util:36 - ip => localhost
+18:45:50,029  INFO Util:41 - ----configurando postgresql
+18:45:50,036  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+18:45:50,039 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+18:45:50,040  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+18:45:50,099  WARN pooling:86 - HHH10001002: Using built-in connection pool (not intended for production use)
+18:45:50,189  INFO pooling:157 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/pob]
+	Database driver: org.postgresql.Driver
+	Database version: 16.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+18:45:50,274  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18:45:50,275  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1fccfc36] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+18:45:50,349 DEBUG SQL:135 - select v1_0.placa from veiculo20231370001 v1_0
+18:45:50,356 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago from bilhete20231370001 b1_0 where b1_0.veiculo_placa=?
+18:45:50,357 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC1234]
+18:45:50,365 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago from bilhete20231370001 b1_0 where b1_0.veiculo_placa=?
+18:45:50,366 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI3456]
+18:45:50,369 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago from bilhete20231370001 b1_0 where b1_0.veiculo_placa=?
+18:45:50,370 TRACE bind:24 - binding parameter (1:VARCHAR) <- [XYZ9876]
+18:45:50,371 DEBUG SQL:135 - select b1_0.veiculo_placa,b1_0.codigoDeBarra,b1_0.dataHoraFinal,b1_0.dataHoraInicial,b1_0.valorPago from bilhete20231370001 b1_0 where b1_0.veiculo_placa=?
+18:45:50,372 TRACE bind:24 - binding parameter (1:VARCHAR) <- [PFV1234]
+18:45:52,589  INFO Util:70 - ----desconectar banco

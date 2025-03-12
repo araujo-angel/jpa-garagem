@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name= "veiculo20231370001")
 public class Veiculo {
-	
+	@Id
     private String placa;
 
     @OneToMany(mappedBy = "veiculo", cascade= {CascadeType.PERSIST, CascadeType.MERGE},
