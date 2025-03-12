@@ -61,7 +61,18 @@ public class Bilhete {
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
-
+    
+	public double getValorPago() {
+		return valorPago;
+	}
+	
+	public LocalDateTime getDataHoraInicial() {
+		return dataHoraInicial;
+	}
+	
+	public LocalDateTime getDataHoraFinal() {
+		return dataHoraFinal;
+	}
     @Override
     public String toString() {
         return "Bilhete [codigoDeBarra=" + codigoDeBarra +
