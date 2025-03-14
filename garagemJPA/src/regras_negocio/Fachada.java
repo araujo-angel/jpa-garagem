@@ -277,6 +277,10 @@ public class Fachada {
 	    return daoveiculo.readByTempoPermanencia(horas);
 	}
 	
+	public static List<Veiculo> listarVeiculosPorDataSaida(LocalDateTime fim){
+		return daoveiculo.readByDataDeSaida(fim);
+	}
+	
 	public static double calcularTotalArrecadado(LocalDateTime inicio, LocalDateTime fim) {
 	    return daobilhete.calcularTotalArrecadadoPorPeriodo(inicio, fim);
 	}
@@ -293,7 +297,7 @@ public class Fachada {
 	    return daoveiculo.readHistoricoByPlaca(placa);
 	}
 	
-	public static List<Veiculo> listarVeiculosFrequentes(int vezes) {
+	public static List<Veiculo> listarVeiculosMaisDeNBilhetes(int vezes) {
 	    return daoveiculo.readByFrequencia(vezes);
 	}
 	
